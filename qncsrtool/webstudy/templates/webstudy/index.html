@@ -8,7 +8,12 @@
     {% if latest_handle_list %}
         <ul>
             {% for handle in latest_handle_list %}
-            <li><a href="/webstudy/{{handle.id}}/">{{handle.filename}}</a></li>
+
+            <li>
+                <a href="/webstudy/{{handle.id}}/">{{handle.filename}}</a>
+                <ul>{{  handle.insertdata }}</ul>
+            </li>
+
             {% endfor %}
         </ul>
     {% else %}

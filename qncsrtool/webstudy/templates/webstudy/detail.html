@@ -10,7 +10,8 @@
 <h2>{{handle.result}}</h2>
 <ul>
 <audio controls>
-  <source src="./wav/filename" type="audio/wav">
+    {% load static %}
+  <source src="{% static handle.filename %}.wav" controls type="audio/wav">
 </audio>
 </ul>
 
