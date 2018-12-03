@@ -2,18 +2,39 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>studying</title>
 </head>
 <body>
-<h1>{{handle.filename}}</h1>
-<h2>{{handle.filepath}}</h2>
-<h2>{{handle.result}}</h2>
-<ul>
+<h1>FileName:{{handle.filename}}</h1>
+<h2>NowResult:{{handle.result}}</h2>
+
+<div>
 <audio controls>
     {% load static %}
-  <source src="{% static handle.filename %}.wav" controls type="audio/wav">
+  <source src="/static/wav/{{handle.filename}}.wav" controls type="audio/wav">
 </audio>
-</ul>
+</div>
+
+
+<div>
+<img src="/static/img/{{handle.filename}}.gif" alt="wav graph" width="450" height="250">
+</div>
+
+<div>
+<form action="updateResult" method="get">
+您听取的结果？<br /><br />
+    <label><input name="newresult" type="radio" value="1"/>空号 </label>
+    <label><input name="newresult" type="radio"  value="2"/>停机 </label>
+    <label><input name="newresult" type="radio"  value="3"/>关机 </label>
+    <label><input name="newresult" type="radio" value="4"/>正在通话 </label>
+    <label><input name="newresult" type="radio"  value="5" />用户忙 </label>
+    <label><input name="newresult" type="radio" value="6" />无人接听 </label>
+    <label><input name="newresult" type="radio" value="-1" checked="checked"/>无结果 </label>
+    <br />
+    <br />
+    <input name="result" type="submit" value="提交" />
+</form>
+</div>
 
 </body>
 </html>
